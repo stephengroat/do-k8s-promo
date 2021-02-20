@@ -1,0 +1,7 @@
+**/.terraform
+**/*.tfvars
+**/backend.tf
+**/*.diff
+**/*.bak
+**/*.kubeconfig*
+**/*.tfstate*
