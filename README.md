@@ -16,7 +16,7 @@
 4. (Optionally) Install [s3cmd](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md)
 
 
-5. Add a valid Digital Ocean API token to a `.tfvars` file, e.g. `terraform.tfvars`:
+5. Add a valid Digital Ocean API token to file with the `.tfvars` extension, e.g. `terraform.tfvars`:
 
 ```hcl
 do_token = "hextokenfromdigitalocean"
@@ -32,14 +32,14 @@ terragrunt apply
 
 ## Get kube config
 
-This example saves the kube config to a file at the root of the project.
+This example saves the kube config to a file at the root of the project:
 
 (Files named `*.kubeconfig.yml` are being ignored by `.gitignore`.)
 
 ```sh
 export CLUSTER_NAME="k8s"
 export KUBECONFIG_BAK="$KUBECONFIG"
-export KUBECONFIG=./do-k8s.kubeconfig.yml
+export KUBECONFIG="$(pwd)/do-k8s.kubeconfig.yml"
 doctl kubernetes cluster kubeconfig save "$CLUSTER_NAME"
 ```
 
