@@ -11,12 +11,14 @@
 
 2. Install [Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/)
 
-3. Install [doctl](https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/)
+3. Install [Helm](https://helm.sh/docs/intro/install/)
 
-4. (Optionally) Install [s3cmd](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md)
+4. Install [doctl](https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/)
+
+5. (Optionally) Install [s3cmd](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md)
 
 
-5. Add a valid Digital Ocean API token to file with the `.tfvars` extension, e.g. `terraform.tfvars`:
+6. Add a valid Digital Ocean API token to file with the `.tfvars` extension, e.g. `terraform.tfvars`:
 
 ```hcl
 do_token = "hextokenfromdigitalocean"
