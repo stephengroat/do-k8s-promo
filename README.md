@@ -8,6 +8,7 @@
 - multicluster and Prometheus federation?
 - separate standalone server for Grafana & Prometheus
 - how would I forward this data to DataDog?
+- add ingress for accessing the Dashboard
 
 ## Pre-Requisites
 
