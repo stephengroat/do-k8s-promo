@@ -2,8 +2,12 @@
 
 ## TODO:
 
-- digital ocean promotheus on the managed cluster (https://yetiops.net/posts/prometheus-service-discovery-digitalocean/)
-- dashboard using grafana showing something fun
+- fix Pod data missing in Grafana
+- what's the best approach for persistent storage of metrics data?
+- set up Loki w/ Grafana
+- multicluster and Prometheus federation?
+- separate standalone server for Grafana & Prometheus
+- how would I forward this data to DataDog?
 
 ## Pre-Requisites
 
