@@ -44,12 +44,14 @@ This example saves the kube config to a file at the root of the project:
 (Files named `*.kubeconfig.yml` are being ignored by `.gitignore`.)
 
 ```sh
-export CLUSTER_NAME="k8s"
+export TF_VAR_cluster_name="k8s"
 export KUBECONFIG_BAK="$KUBECONFIG"
 export KUBECONFIG="$(pwd)/do-k8s.kubeconfig.yml"
-doctl kubernetes cluster kubeconfig save "$CLUSTER_NAME"
+doctl kubernetes cluster kubeconfig save "$TF_VAR_cluster_name"
 ```
 
 ## References
+
+<https://www.digitalocean.com/docs/kubernetes/>
 
 <https://www.padok.fr/en/blog/digitalocean-kubernetes>
