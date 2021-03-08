@@ -1,3 +1,10 @@
+/**
+ * # do-k8s-cluster
+ *
+ * A pre-configured Kubernetes cluster in Digital Ocean
+ *
+ */
+
 terraform {
   required_version = ">= 0.14"
   required_providers {

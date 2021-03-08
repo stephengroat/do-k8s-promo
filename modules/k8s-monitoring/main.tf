@@ -1,3 +1,10 @@
+/**
+ * # k8s-monitoring
+ *
+ * Deploys a monitoring stack in a namespace in Kubernetes
+ *
+ */
+
 terraform {
   required_version = ">= 0.14"
 
