@@ -2,13 +2,45 @@
 
 ## TODO:
 
-- fix Pod data missing in Grafana
-- what's the best approach for persistent storage of metrics data?
+- persistent storage
 - set up Loki w/ Grafana
-- multicluster and Prometheus federation?
+- multicluster and Prometheus federation
+  - use simple Prometheus chart
 - separate standalone server for Grafana & Prometheus
-- how would I forward this data to DataDog?
 - add ingress for accessing the Dashboard
+- create github action for terraform-docs
+- relabeling config for the target prometheuses
+
+Example central Prometheus config:
+
+```yaml
+# basic config for the central prometheus hub
+prometheus.yml:
+    rule_files:
+      - /etc/config/rules
+      - /etc/config/alerts
+
+    scrape_configs:
+      - job_name: 'federate'
+        scrape_interval: 15s
+
+        honor_labels: true
+        metrics_path: '/federate'
+
+        params:
+          'match[]':
+            - '{job="prometheus"}'
+            - '{__name__=~"job:.*"}'
+
+        static_configs:
+          - targets:
+            - 'prometheus-server:80'
+```
+
+Next level:
+
+- fault injection e.g. Kraken
+- some useful applications? e.g. Huginn
 
 ## Pre-Requisites
 
@@ -21,7 +53,6 @@
 4. Install [doctl](https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/)
 
 5. (Optionally) Install [s3cmd](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md)
-
 
 6. Add a valid Digital Ocean API token to a file with the `.tfvars` extension, e.g. `terraform.tfvars`:
 

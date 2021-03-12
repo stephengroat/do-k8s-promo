@@ -38,7 +38,7 @@ resource "kubernetes_namespace" "monitoring" {
 resource "helm_release" "kube-prometheus" {
   name       = "kube-prometheus"
   repository = "https://prometheus-community.github.io/helm-charts"
-  chart      = "kube-prometheus-stack"
+  chart      = "kube-prometheus-stack" # TODO: switch simple prometheus
   namespace  = kubernetes_namespace.monitoring.metadata[0].name
 
   recreate_pods   = true
