@@ -45,7 +45,7 @@ data "digitalocean_kubernetes_cluster" "this" {
 }
 
 module "do_k8s_cluster" {
-  source       = "./modules/do-k8s-cluster"
+  source       = "../../modules/do-k8s-cluster"
   cluster_name = var.cluster_name
 }
 
@@ -96,6 +96,6 @@ provider "helm" {
 }
 
 module "k8s_monitoring" {
-  source    = "./modules/k8s-monitoring"
+  source    = "../../modules/k8s-monitoring"
   namespace = "monitoring"
 }

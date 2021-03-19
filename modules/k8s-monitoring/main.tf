@@ -35,10 +35,10 @@ resource "kubernetes_namespace" "monitoring" {
   }
 }
 
-resource "helm_release" "kube-prometheus" {
-  name       = "kube-prometheus"
+resource "helm_release" "prometheus" {
+  name       = "prometheus"
   repository = "https://prometheus-community.github.io/helm-charts"
-  chart      = "kube-prometheus-stack" # TODO: switch simple prometheus
+  chart      = "prometheus" # TODO: switch simple prometheus
   namespace  = kubernetes_namespace.monitoring.metadata[0].name
 
   recreate_pods   = true
@@ -50,3 +50,19 @@ resource "helm_release" "kube-prometheus" {
   max_history     = 2
 
 }
+
+# resource "helm_release" "kube-prometheus" {
+#   name       = "kube-prometheus"
+#   repository = "https://prometheus-community.github.io/helm-charts"
+#   chart      = "kube-prometheus-stack" # TODO: switch simple prometheus
+#   namespace  = kubernetes_namespace.monitoring.metadata[0].name
+
+#   recreate_pods   = true
+#   reuse_values    = true
+#   atomic          = true
+#   cleanup_on_fail = true
+#   wait            = true
+#   timeout         = 300
+#   max_history     = 2
+
+# }

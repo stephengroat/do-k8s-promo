@@ -6,8 +6,6 @@
 - set up Loki w/ Grafana
 - multicluster and Prometheus federation
   - use simple Prometheus chart
-- separate standalone server for Grafana & Prometheus
-- add ingress for accessing the Dashboard
 - create github action for terraform-docs
 - relabeling config for the target prometheuses
 
